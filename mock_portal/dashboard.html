@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioFocus Portal - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .header { background: #667eea; color: white; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 24px; }
+        .nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav a { margin-right: 20px; color: #667eea; text-decoration: none; font-weight: 500; }
+        .nav a:hover { text-decoration: underline; }
+        .dashboard { padding: 30px; max-width: 1200px; margin: 0 auto; }
+        .welcome { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>CardioFocus Device Portal</h1>
+        <button onclick="logout()" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 20px; border: 1px solid white; border-radius: 5px; cursor: pointer; font-size: 14px;">Logout</button>
+    </div>
+    <div class="nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="devices.html">Devices</a>
+        <a href="reports.html">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+    <div class="dashboard">
+        <div class="welcome">
+            <h2>Welcome to CardioFocus Portal</h2>
+            <p style="margin-top: 15px; color: #666;">Manage and monitor cardiac devices efficiently.</p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

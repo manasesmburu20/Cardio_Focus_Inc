@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioFocus Portal - Reports</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .header { background: #667eea; color: white; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 24px; }
+        .logout-btn { background: rgba(255,255,255,0.2); color: white; padding: 8px 20px; border: 1px solid white; border-radius: 5px; cursor: pointer; text-decoration: none; }
+        .logout-btn:hover { background: rgba(255,255,255,0.3); }
+        .nav { background: white; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .nav a { margin-right: 20px; color: #667eea; text-decoration: none; font-weight: 500; }
+        .nav a:hover { text-decoration: underline; }
+        .content { padding: 30px; max-width: 1200px; margin: 0 auto; }
+        .reports-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .report-card { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s; }
+        .report-card:hover { background: #e9ecef; transform: translateX(5px); }
+        .report-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .report-title { font-size: 18px; font-weight: 600; color: #333; }
+        .report-date { color: #666; font-size: 14px; }
+        .report-stats { display: flex; gap: 20px; margin-top: 10px; }
+        .stat { font-size: 14px; }
+        .stat-label { color: #666; }
+        .stat-value { font-weight: 600; margin-left: 5px; }
+        .success { color: #28a745; }
+        .warning { color: #ffc107; }
+        .danger { color: #dc3545; }
+        .refresh-btn { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
+        .refresh-btn:hover { background: #5568d3; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CardioFocus Device Portal</h1>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+    <div class="nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="devices.html">Devices</a>
+        <a href="reports.html">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+    <div class="content">
+        <div class="reports-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Test Reports (8 total)</h2>
+                <button class="refresh-btn" onclick="location.reload()">Refresh Reports</button>
+            </div>
+            <div id="reports-list">
+
+                <div class="report-card" onclick="viewReport('report0')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #8</div>
+                        <div class="report-date">2026-03-05 01:25:11</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report1')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #7</div>
+                        <div class="report-date">2026-03-04 15:38:38</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report2')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #6</div>
+                        <div class="report-date">2026-03-04 15:30:15</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report3')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #5</div>
+                        <div class="report-date">2026-03-04 15:29:35</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report4')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #4</div>
+                        <div class="report-date">2026-03-04 15:28:58</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report5')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #3</div>
+                        <div class="report-date">2026-03-04 14:58:28</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report6')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #2</div>
+                        <div class="report-date">2026-03-04 14:53:46</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value success">10</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value ">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value success">100.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" onclick="viewReport('report7')">
+                    <div class="report-header">
+                        <div class="report-title">Test Report #1</div>
+                        <div class="report-date">2026-03-04 14:51:14</div>
+                    </div>
+                    <div class="report-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Steps:</span>
+                            <span class="stat-value">4</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Passed:</span>
+                            <span class="stat-value danger">1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Failed:</span>
+                            <span class="stat-value danger">3</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Success Rate:</span>
+                            <span class="stat-value danger">25.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        function viewReport(reportType) {
+            let reportContent = '';
+            
+            if (reportType === 'report0') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-05 01:25:11
+End Time: 2026-03-05 01:25:11
+Duration: 0.01 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report1') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 15:38:38
+End Time: 2026-03-04 15:38:38
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report2') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 15:30:15
+End Time: 2026-03-04 15:30:15
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report3') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 15:29:35
+End Time: 2026-03-04 15:29:35
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report4') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 15:28:58
+End Time: 2026-03-04 15:28:58
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report5') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 14:58:28
+End Time: 2026-03-04 14:58:28
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report6') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+*** DEMO MODE - Simulated Test Execution ***
+============================================================
+
+Start Time: 2026-03-04 14:53:46
+End Time: 2026-03-04 14:53:46
+Duration: 0.00 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[PASS] [API] API Request: Successfully retrieved device DEV-12345
+[PASS] [API] Verification: Status matches: Active
+[PASS] [UI] Setup: Browser initialized successfully (demo mode)
+[PASS] [UI] Navigate: Navigated to https://portal.cardiofocus.com
+[PASS] [UI] Login: Successfully logged in
+[PASS] [UI] Navigation: Navigated to device management page
+[PASS] [UI] Search: Device DEV-12345 found
+[PASS] [UI] Verification: Device status matches: Active
+[PASS] [UI] Teardown: Browser closed (demo mode)
+
+============================================================
+SUMMARY: 10/10 steps passed (100.0%)
+============================================================
+`;
+            } else             if (reportType === 'report7') {
+                reportContent = `============================================================
+CARDIOFOCUS TEST REPORT
+============================================================
+
+Start Time: 2026-03-04 14:51:14
+End Time: 2026-03-04 14:51:21
+Duration: 7.37 seconds
+
+TEST RESULTS:
+------------------------------------------------------------
+[PASS] [API] Authentication: API token configured
+[FAIL] [API] API Request: Connection error
+[FAIL] [API] Verification: No device data to verify
+[FAIL] [UI] Setup: Failed to initialize browser: [WinError 193] %1 is not a valid Win32 application
+
+============================================================
+SUMMARY: 1/4 steps passed (25.0%)
+============================================================
+`;
+            } else {
+                reportContent = 'Report not found';
+            }
+            
+            alert(reportContent);
+        }
+    </script>
+</body>
+</html>
