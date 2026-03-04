@@ -1,6 +1,5 @@
 # CardioFocus Device Portal - Automation Test Suite
-
-Automated testing solution for the CardioFocus device management web portal, including UI and API validation with comprehensive reporting.
+Note: This is a demo, which is why I have included the .env file. In a real project, including the .env file is strictly prohibited for security purposes.
 
 ## Overview
 
